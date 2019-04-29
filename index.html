@@ -60,6 +60,8 @@ a:active {
 
 .hidden {
     opacity: 0;
+    pointer-events: none;
+    cursor: default;
 }
 </style>
 <script>
@@ -67,7 +69,9 @@ function submit() {
     console.log("hi");
     document.getElementsByTagName("h1")[0].classList.add("hidden");
     document.getElementsByTagName("textarea")[0].classList.add("hidden");
+    document.getElementsByTagName("textarea")[0].disabled = true;;
     document.getElementsByTagName("a")[0].classList.add("hidden");
+    document.getElementsByTagName("a")[0].disabled = true;
     document.getElementsByTagName("h2")[0].classList.remove("hidden");
     return false;
 }
@@ -75,10 +79,8 @@ function submit() {
 </head>
 <body>
 <h1>How do you feel about IRC?</h1>
-<form onsubmit="submit()">
 <textarea></textarea>
 <h2 class="hidden">That's nice.</h2>
 <a href="#" onclick="submit()">Share</button>
-</form>
 </body>
 </html>
